@@ -30,12 +30,12 @@ Como forma de verificação, caso seja um aluno, deve informar qual ateliê e gr
 #### Persona 1 - Manuela
 Manuela Costa de Jesus é uma jovem de 18 anos que estuda no Inteli, cursando Engenharia de Software.
 
-<img src="./Imagens/Persona1.png" width=100% />
+<img src="./Imagens/Persona1.png" width=70% />
 
 #### Persona 2 - Pablo Oliveira Garcia
 Pablo Oliveira Garcia é um homem adulto de 39 anos que mestra aulas de computação no Inteli.
 
-<img src="./Imagens/Persona2.png" width=100% />
+<img src="./Imagens/Persona2.png" width=70% />
 
 
 ### 2.2. User Stories (Semana 01)
