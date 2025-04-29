@@ -63,7 +63,7 @@ Critérios INVEST | Independente: Ela não necessita de outra User Story. <br> N
 Identificação | US003
 --- | ---
 Persona | Manuela (Estudante)
-User Story | Como estudante do Inteli, quero reservar uma sala disponível, para conseguir estudar?
+User Story | Como estudante do Inteli, quero reservar uma sala disponível, para conseguir estudar.
 Critério de aceite 2 | CR1: Devo estar no Inteli e conectado na rede Wi-fi.
 Critério de aceite 2 | CR2: Devo estar logado corretamente.
 Critério de aceite 3 | CR3: Nenhum integrante do meu grupo pode ter reservado uma sala.
@@ -73,7 +73,7 @@ Critérios INVEST | Independente: Sim, não depende de outra User Story. <br> Ne
 Identificação | US004
 --- | ---
 Persona | Pablo (Professor)
-User Story | Como professor do Inteli, quero reservar uma sala disponível, para conseguir organizar minhas aulas?
+User Story | Como professor do Inteli, posso reservar uma sala disponível, para conseguir organizar minhas aulas?
 Critério de aceite 1 | CR1: Devo estar logado corretamente.
 Critério de aceite 2 | CR2: A sala não pode estar reservada por outra pessoa. 
 Critérios INVEST | Independente: Não necessariamente, já que depende que o usuário esteja logado. <br> Negociável: Sim, ele pode escolher qual horário ou sala deseja. <br> Valiosa: Sim, já que permite ao professor reservar um espaço para organizar suas aulas.<br> Estimável: Sim, sabemos o esforço necessário pelo usuário. <br> Pequena: Sim, seu tempo é curto. <br> Testável: Sim, é possível testar se o sistema de verifica corretamente se um professor consegue reservar uma sala.
