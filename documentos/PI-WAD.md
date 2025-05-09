@@ -96,12 +96,9 @@ Critérios INVEST | Independente: Não necessariamente, já que depende que o us
 
 ### 3.1. Modelagem do banco de dados  (Semana 3)
 
-#### Modelo Relacional
 #### Modelo Lógico
 
 <img src='../assets/wad/ModeloLogico.png'/>
-
-
 
 ### Modelo Físico
 
@@ -177,6 +174,8 @@ CREATE TABLE Reservas (
     FOREIGN KEY (Identificador_Grupo_Reservas) REFERENCES Grupos(Identificador_Grupo)
 );
 ```
+
+Veja o script completo em: [scripts/init.sql](../scripts/init.sql)
 
 ### 3.1.1 BD e Models (Semana 5)
 *Descreva aqui os Models implementados no sistema web*
