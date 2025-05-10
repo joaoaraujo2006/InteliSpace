@@ -92,6 +92,7 @@ User Story | Como professor do Inteli, quero sair da minha conta.
 Critério de aceite 1 | CR1: Devo estar logado.
 Critérios INVEST | Independente: Não necessariamente, já que depende que o usuário esteja logado. <br> Negociável: Sim, ela permite que o professor saia de sua conta. <br> Valiosa: Sim, já que permite ao professor sair da sua conta se necessário.<br> Estimável: Sim, sabemos o esforço necessário pelo usuário. <br> Pequena: Sim, seu tempo é curto. <br> Testável: Sim, é possível testar se o usuário sair de sua conta.
 
+
 ## <a name="c3"></a>3. Projeto da Aplicação Web
 
 ### 3.1. Modelagem do banco de dados  (Semana 3)
@@ -99,6 +100,26 @@ Critérios INVEST | Independente: Não necessariamente, já que depende que o us
 #### Modelo Lógico
 
 <img src='../assets/wad/ModeloLogico.png'/>
+
+Nesse modelo do banco de dados, foram criadas as seguintes tabelas/entidades:
+
+- **Turma:** A tabela turma guarda todas as turmas existentes no espaço do Inteli através atributo: Número_Turma
+
+- **Grupo:** O grupo guarda todos os grupos existentes nas turmas do Inteli e utiliza do ID_Grupo e Número_Turma(Associado como Chave Secundária de Turma) para se diferenciar.
+
+- **Reservante_Aluno:** A tabela Reservante_Aluno guardam as informações dos alunos existentes no sistema Inteli e possui RA como chave primária e ID_Usuário(Associado como Chave Secundária de Usuário), Número_Turma (Associado como Chave Secundária de Turma) e Identificador_Grupo (Associado como Chave Secundária de Grupo). 
+
+- **Reservante_Funcionário:** A tabela Reservante_Funcionário guarda as informações dos funcionários que desejam reservar uma sala.
+
+- **Usuários:** A tabela usuário une as entidades Aluno e Funcionários.
+
+- **Reservas:** A tabela Reservas guarda as alocações de sala do usuário. Tem como chave primária o ID_Reserva e chave secundária o Número_Sala, ID_Usuário e Identificador_Grupo.
+
+- **Salas:** A tabela Salas guarda todas as salas que podem ser reservadas ou não.
+
+- **Horários_Disponíveis:** A tabela de horários guarda todos os horários por sala que estão disponíveis para reservar.
+
+
 
 ### Modelo Físico
 

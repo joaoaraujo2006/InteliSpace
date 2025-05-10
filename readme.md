@@ -93,14 +93,7 @@ InteliSpace/
 ```
 
 
-Contribuição
-------------
 
-Contribuições são bem-vindas! Sinta-se à vontade para abrir um issue ou enviar um pull request.
 
 Licença
 -------
-
-Este projeto está licenciado sob a Licença MIT.
-
-Este README.md fornece uma visão geral clara do boilerplate, incluindo instruções de instalação, configuração do banco de dados, funcionalidades principais, scripts disponíveis, estrutura de diretórios, como contribuir e informações de licença. Certifique-se de personalizar as seções com detalhes específicos do seu projeto conforme necessário.
