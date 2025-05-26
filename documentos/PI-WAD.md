@@ -503,7 +503,6 @@ A Tela de não-conectado está vinculada a essas User Stories por conta do crit�
 
 
 ### 3.6. WebAPI e endpoints (Semana 05)
-<br>
 
 ##### Listar reservas
 ```
@@ -512,8 +511,6 @@ router.get('/reservas', ReservaController.listar);
 
 O endpoint acima define que quando a rota do HTTP finalizar com /reservas, ele fará a requisição e rodará o **listar** definido no controller. O **listar** exibe todas as reservas do banco de dados.
 
-<br>
-
 ##### Criar reservas
 ```
 router.post('/reservas', ReservaController.criar);
@@ -521,16 +518,12 @@ router.post('/reservas', ReservaController.criar);
 
 O endpoint acima define que quando a rota do HTTP finalizar com /reservas, ele fará a requisição e rodará o **criar** definido no controller. O **criar** do ReservaController gera uma nova reserva de acordo com os dados fornecidos pelo usuário.
 
-<br>
-
 ##### Editar reservas
 ```
 router.post('/reservas/edit/:id',  ReservaController.editar);
 ```
 
 O endpoint acima define que quando a rota do HTTP finalizar com /reservas/edit/:id, ele fará a requisição e rodará o **editar** definido no controller. O **editar** altera uma reserva de acordo com a escolha e os dados fornecidos pelo usuário.
-
-<br>
 
 ##### Deletar reservas
 ```
