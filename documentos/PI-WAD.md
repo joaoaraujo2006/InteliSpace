@@ -250,6 +250,8 @@ Pertence a um Grupo através da chave estrangeira Identificador_Grupo_Usuário
 
 Pode estar associado a um Reservante_Aluno ou Reservante_Funcionário
 
+<br>
+
 #### Reservante_Aluno
 
 Especifico para alunos
