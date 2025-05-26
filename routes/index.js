@@ -1,22 +1,12 @@
 const express = require('express');
 const router = express.Router();
-const path = require('path');
+const ReservaController = require('../controllers/ReservaController');
 
-// Roteamento para páginas dinâmicas
-router.get('/', (req, res) => {
-  res.render(path.join(__dirname, '../views/layout/main'), {
-    pageTitle: 'Página Inicial',
-    content: path.join(__dirname, '../views/pages/page1')
-  });
-});
 
-router.get('/about', (req, res) => {
-  res.render(path.join(__dirname, '../views/layout/main'), {
-    pageTitle: 'Página Inicial',
-    content: path.join(__dirname, '../views/pages/page2')
-  });
-});
+// rota POST para algum form (se tiver)
 
-// Adicione outras rotas conforme necessário
-
+router.get('/reservas', ReservaController.listar);
+router.post('/reservas', ReservaController.criar);
+router.post('/reservas/edit/:id',  ReservaController.editar);
+router.post('/reservas/delete/:id',  ReservaController.deletar);
 module.exports = router;

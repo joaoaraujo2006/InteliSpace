@@ -1,54 +1,49 @@
-<h2>Página 1</h2>
-<p>Lista de Usuários:</p>
+<h2>Lista de Reservas</h2>
 
-<table border="1" id="usersTable">
-  <thead>
-    <tr>
-      <th>ID</th>
-      <th>Nome</th>
-      <th>Email</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td colspan="3">Carregando usuários...</td>
-    </tr>
-  </tbody>
-</table>
+<% reservas.forEach(item=> { %>
+  <article>
+    <p>ID da Reserva: <%= item.id_reserva %>
+    </p>
+    <p>Nome do Usuário: <%= item.nome_usuario %>
+    </p>
+    <p>Número da Sala: <%= item.número_sala %>
+    </p>
+    <p>Horário: <%= item.horário %>
+    </p>
+    <p>Grupo: <%= item.identificador_grupo_reservas %>
+    </p>
 
-<script>
-  // Função para buscar usuários da API e renderizar na tabela
-  async function fetchUsers() {
-    try {
-      const response = await fetch('/users');
-      if (!response.ok) {
-        throw new Error('Erro ao buscar usuários');
-      }
-      const users = await response.json();
+    <div style="display:flex; flex-direction: row; gap: 1vw;">
+      <form action="/reservas/edit/<%= item.id_reserva %>" method="POST"
+        style="display:flex; flex-direction: row; gap: 0.5vw;">
+        <label for="número_sala">Número da Sala:</label>
+        <input type="number" name="número_sala" required><br><br>
 
-      const tableBody = document.querySelector('#usersTable tbody');
-      tableBody.innerHTML = ''; // Limpa o conteúdo anterior
+        <label for="horário">Horário (AAAA-MM-DD HH:MM:SS):</label>
+        <input type="text" name="horário" required><br><br>
 
-      if (users.length > 0) {
-        users.forEach(user => {
-          const row = document.createElement('tr');
-          row.innerHTML = `
-            <td>${user.id}</td>
-            <td>${user.name}</td>
-            <td>${user.email}</td>
-          `;
-          tableBody.appendChild(row);
-        });
-      } else {
-        tableBody.innerHTML = '<tr><td colspan="3">Nenhum usuário encontrado.</td></tr>';
-      }
-    } catch (error) {
-      console.error(error);
-      const tableBody = document.querySelector('#usersTable tbody');
-      tableBody.innerHTML = '<tr><td colspan="3">Erro ao carregar usuários.</td></tr>';
-    }
-  }
+        <button type="submit">Editar</button>
+      </form>
+      <form action="/reservas/delete/<%= item.id_reserva %>" method="POST" style="display:flex; flex-direction: row; gap: 0.5vw;">
+        <button type="submit">Deletar</button>
+      </form>
+    </div>
+  </article>
+  <% }) %>
 
-  // Chama a função ao carregar a página
-  fetchUsers();
-</script>
+    <h2>Cadastrar nova reserva:</h2>
+    <form action="/reservas" method="POST">
+      <label for="numero_sala">Número da Sala:</label>
+      <input type="number" name="número_sala" required><br><br>
+
+      <label for="horário">Horário (AAAA-MM-DD HH:MM:SS):</label>
+      <input type="text" name="horário" required><br><br>
+
+      <label for="id_usuário">ID do Usuário:</label>
+      <input type="number" name="id_usuário" required><br><br>
+
+      <label for="identificador_grupo_reservas">ID do Grupo:</label>
+      <input type="number" name="identificador_grupo_reservas" required><br><br>
+
+      <button type="submit">Reservar</button>
+    </form>

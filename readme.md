@@ -43,6 +43,13 @@ node server.js
 node app.js
 ```
      
+**Opcional**
+
+1. **Criar banco de dados:**
+
+```bash
+npm run init-db
+```
 
     
 

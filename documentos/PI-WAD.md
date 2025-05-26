@@ -199,18 +199,157 @@ CREATE TABLE Reservas (
 Veja o script completo em: [scripts/init.sql](../scripts/init.sql)
 
 ### 3.1.1 BD e Models (Semana 5)
-*Descreva aqui os Models implementados no sistema web*
+
+#### Turma
+Representa uma turma à qual grupos podem estar associados. Ela é utilizada para que alunos de um grupo de uma mesma turma não possa repetir uma reserva.
+
+**Atributos:**
+
+- Número_Turma (INT, chave primária)
+
+<br>
+
+#### Grupo
+
+Representa um grupo dentro de uma turma.
+
+**Atributos:**
+
+- Identificador_Grupo (INT, chave primária)
+
+- Número_Turma (INT, chave estrangeira referenciando Turma)
+
+**Relacionamentos:**
+
+Pertence a uma Turma.
+
+<br>
+
+#### Usuário
+
+Contém os dados básicos de todos os usuários do sistema (alunos e funcionários) que desejam reservar uma sala.
+
+**Atributos:**
+
+- ID_Usuario (INT, chave primária)
+
+- Nome (VARCHAR)
+
+- Email (VARCHAR)
+
+- Senha (VARCHAR)
+
+- Tipo (CHAR)
+
+- Identificador_Grupo_Usuário (INT, chave estrangeira referenciando Grupo)
+
+**Relacionamentos:**
+
+Pertence a um Grupo através da chave estrangeira Identificador_Grupo_Usuário
+<br>
+
+Pode estar associado a um Reservante_Aluno ou Reservante_Funcionário
+
+#### Reservante_Aluno
+
+Especifico para alunos
+
+**Atributos:**
+
+- RA (VARCHAR, chave primária)
+
+- Nome_Aluno (CHAR)
+
+- Email_Aluno (CHAR)
+
+- Senha_Aluno (VARCHAR)
+
+- Identificador_Grupo (INT, chave estrangeira referenciando Grupo)
+
+- Número_Turma (INT, chave estrangeira referenciando Turma)
+
+- ID_Usuário (INT, chave estrangeira referenciando Usuário)
+
+**Relacionamentos:**
+
+Pertence a um Grupo
+
+Pertence a uma Turma
+
+Está associado a um Usuário
+<br>
+#### Reservante_Funcionário
+
+Específico para funcionários.
+
+**Atributos:**
+- CPF (CHAR, chave primária)
+- Nome (CHAR)
+- Email_Funcionário (CHAR)
+- Senha_Funcionário (VARCHAR)
+- ID (INTEGER)
+- Identificador_Grupo (INTEGER, chave estrangeira referenciando Grupo)
+- ID_Usuário (INT, chave estrangeira referenciando Usuário)
+
+**Relacionamentos:**
+
+Pertence a um Grupo
+Está associado a um Usuário
+
+<br>
+
+#### Sala
+Representa uma sala que pode ser reservada.
+
+**Atributos:**
+- Número_Sala (INT, chave primária)
+- Identificador_Grupo (VARCHAR)
+
+**Relacionamentos:**
+- Pode estar associada a um Grupo
+- Possui vários Horarios_Disponiveis
+- Pode estar associada a várias Reservas
+
+<br>
+
+#### Horario_Disponivel
+
+Representa os horários disponíveis para reserva de uma sala.
+
+**Atributos:**
+- ID_Horario (INT, chave primária)
+- Numero_Sala (INT, chave estrangeira referenciando Sala)
+- Horario_Inicio (TIMESTAMP)
+- Horario_Fim (TIMESTAMP)
+
+**Relacionamentos:**
+- Pertence a uma Sala
+
+<br>
+
+#### Reserva
+Contém os dados das reservas realizadas no sistema.
+
+**Atributos:**
+- ID_Reserva (INT, chave primária)
+- Número_Sala (INT, chave estrangeira referenciando Sala)
+- Horário (TIMESTAMP)
+- ID_Usuário (INTEGER, chave estrangeira referenciando Usuário)
+- Identificador_Grupo_Reservas (INT, chave estrangeira referenciando Grupo)
+
+**Relacionamentos:**
+- Está associada a uma Sala
+- Está associada a um Usuário
+- Está associada a um Grupo
 
 ### 3.2. Arquitetura (Semana 5)
 
-*Posicione aqui o diagrama de arquitetura da sua solução de aplicação web. Atualize sempre que necessário.*
+O diagrama abaixo representa a arquitetura do sistema de reservas baseada no padrão MVC (Model-View-Controller). Esse padrão organiza a aplicação em três camadas principais, separando a lógica de negócio, a interface do usuário e o controle do fluxo de dados.
 
-**Instruções para criação do diagrama de arquitetura**  
-- **Model**: A camada que lida com a lógica de negócios e interage com o banco de dados.
-- **View**: A camada responsável pela interface de usuário.
-- **Controller**: A camada que recebe as requisições, processa as ações e atualiza o modelo e a visualização.
-  
-*Adicione as setas e explicações sobre como os dados fluem entre o Model, Controller e View.*
+<img src="../assets/wad/diagrama.png">
+
+
+
 
 ### 3.3. Wireframes (Semana 03)
 
@@ -364,8 +503,41 @@ A Tela de não-conectado está vinculada a essas User Stories por conta do crit�
 
 
 ### 3.6. WebAPI e endpoints (Semana 05)
+<br>
 
-*Utilize um link para outra página de documentação contendo a descrição completa de cada endpoint. Ou descreva aqui cada endpoint criado para seu sistema.*  
+##### Listar reservas
+```
+router.get('/reservas', ReservaController.listar);
+```
+
+O endpoint acima define que quando a rota do HTTP finalizar com /reservas, ele fará a requisição e rodará o **listar** definido no controller. O **listar** exibe todas as reservas do banco de dados.
+
+<br>
+
+##### Criar reservas
+```
+router.post('/reservas', ReservaController.criar);
+```
+
+O endpoint acima define que quando a rota do HTTP finalizar com /reservas, ele fará a requisição e rodará o **criar** definido no controller. O **criar** do ReservaController gera uma nova reserva de acordo com os dados fornecidos pelo usuário.
+
+<br>
+
+##### Editar reservas
+```
+router.post('/reservas/edit/:id',  ReservaController.editar);
+```
+
+O endpoint acima define que quando a rota do HTTP finalizar com /reservas/edit/:id, ele fará a requisição e rodará o **editar** definido no controller. O **editar** altera uma reserva de acordo com a escolha e os dados fornecidos pelo usuário.
+
+<br>
+
+##### Deletar reservas
+```
+router.post('/reservas/delete/:id',  ReservaController.deletar);
+```
+
+O endpoint acima define que quando a rota do HTTP finalizar com /reservas/delete/:id, ele fará a requisição e rodará o **deletar** definido no controller. O **deletar** apaga a reserva escolhida.
 
 ### 3.7 Interface e Navegação (Semana 07)
 

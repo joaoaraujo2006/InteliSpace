@@ -59,7 +59,7 @@ CREATE TABLE Horarios_Disponiveis (
 );
 
 CREATE TABLE Reservas (
-    ID_Reserva INT PRIMARY KEY,
+    ID_Reserva SERIAL PRIMARY KEY,
     Número_Sala INT,
     Horário TIMESTAMP,
     ID_Usuário INTEGER,
