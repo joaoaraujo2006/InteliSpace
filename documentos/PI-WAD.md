@@ -486,12 +486,11 @@ A Tela de não-conectado está vinculada a essas User Stories por conta do crit�
 **Link de acesso aos protótipos:** https://www.figma.com/design/sfphzcnkFfbrxcOkDIKyXC/Untitled?node-id=10-2&t=vTxja5lYBs1zF6Tb-1
 ### 3.4. Guia de estilos (Semana 05)
 
-*Descreva aqui orientações gerais para o leitor sobre como utilizar os componentes do guia de estilos de sua solução.*
+<img src='../assets/wad/Estilos.png'>
 
 
 ### 3.5. Protótipo de alta fidelidade (Semana 05)
 
-*Posicione aqui algumas imagens demonstrativas de seu protótipo de alta fidelidade e o link para acesso ao protótipo completo (mantenha o link sempre público para visualização).*
 
 <img src='../assets/wad/prototipos/alta/1 - Login.png' width='20%'>
 <img src='../assets/wad/prototipos/alta/2 - Seleção de Reserva.png' width='20%'>
@@ -502,7 +501,9 @@ A Tela de não-conectado está vinculada a essas User Stories por conta do crit�
 <img src='../assets/wad/prototipos/alta/7 - Negado.png' width='20%'>
 <img src='../assets/wad/prototipos/alta/8 - Wifi.png' width='20%'>
 
+<br>
 
+**Link de acesso:** https://www.figma.com/design/sfphzcnkFfbrxcOkDIKyXC/Untitled?node-id=69-2&t=leGI9lmIgMf42Rg8-0
 
 ### 3.6. WebAPI e endpoints (Semana 05)
 
