@@ -443,9 +443,7 @@ Essa tela se relaciona com as User Stories acima, pois é responsável por reali
 
 <img src='../assets/wad/prototipos/baixa/6.png' width='20%'>
 
-A tela de perfil exibe as informações do usuário logado, como nome, email, RA, Turma (Caso haja) e grupo. Além de exibir a foto do usuário.
-
-O botão de Sair é responsável por deslogar a conta atual e voltar para a tela de login. 
+A tela de perfil exibe as informações do usuário logado, como nome, email, RA, Turma (Caso haja) e grupo. Além de exibir a foto do usuário. O botão de Sair é responsável por deslogar a conta atual e voltar para a tela de login. 
 
 Essa tela está vinculada às seguintes User Stories:
 
@@ -486,20 +484,82 @@ A Tela de não-conectado está vinculada a essas User Stories por conta do crit�
 **Link de acesso aos protótipos:** https://www.figma.com/design/sfphzcnkFfbrxcOkDIKyXC/Untitled?node-id=10-2&t=vTxja5lYBs1zF6Tb-1
 ### 3.4. Guia de estilos (Semana 05)
 
+#### **Cores:** 
+
+A paleta de cores é composta por quatro principais:
+
+- #664A95 – Roxo claro
+- #462D71 – Roxo escuro
+- #F20909 – Vermelho vibrante
+- #FFFFFF – Branco
+
+Essas cores são usadas para compor os elementos visuais do sistema, como fundos, botões e textos.
+
+#### Tipografia:
+
+Fonte padrão: Raleway
+Tamanhos e hierarquia dos títulos:
+
+- H1 – Título 1: 90px
+- H2 – Título 2: 76px
+- H3 – Título 3: 55px
+- H4 – Título 4: 30px
+
+Pesos disponíveis da fonte (Fonte Weight):
+
+- Bold
+- Semi-Bold
+- Regular
+
+####  Botões
+Existem duas variações principais para cada tipo de botão:
+
+- Botões com fundo roxo (#462D71 ou #664A95)
+- Botões com fundo branco/preto/vermelho, texto contrastante
+
+Tipos:
+- Confirmar
+- Reservar / Entrar
+- Sair
+    - Versão clara (texto vermelho em fundo branco rosado)
+    - Versão escura (texto branco em fundo vermelho puro)
+      
 <img src='../assets/wad/Estilos.png'>
 
 
 ### 3.5. Protótipo de alta fidelidade (Semana 05)
-
-
-<img src='../assets/wad/prototipos/alta/1 - Login.png' width='20%'>
+<div style=" display: flex; flex-direction: row;">
+ <img src='../assets/wad/prototipos/alta/1 - Login.png' width='20%'>   
 <img src='../assets/wad/prototipos/alta/2 - Seleção de Reserva.png' width='20%'>
 <img src='../assets/wad/prototipos/alta/3 - Tela de Salas.png' width='20%'>
-<img src='../assets/wad/prototipos/alta/4 - Tela Reserva.png' width='20%'>
-<img src='../assets/wad/prototipos/alta/5 - Confirmar Reserva.png' width='20%'>
-<img src='../assets/wad/prototipos/alta/6 - Perfil.png' width='20%'>
-<img src='../assets/wad/prototipos/alta/7 - Negado.png' width='20%'>
-<img src='../assets/wad/prototipos/alta/8 - Wifi.png' width='20%'>
+</div>
+
+
+- **Login:** A tela de login é a porta de entrada do aplicativo. Nela, o usuário — seja professor ou estudante — deve autenticar-se utilizando suas credenciais institucionais (e-mail e senha do sistema Inteli). Esse processo garante que apenas membros vinculados ao Instituto tenham acesso à funcionalidade de reserva de salas.<br>
+- **Home:** A tela Home é a principal interface do aplicativo. Nela, o usuário pode acessar o card "Salas Disponíveis", que exibe todas as salas com horários vagos no dia atual. Esse card também apresenta um indicador numérico, como "1/10", representando a quantidade de salas ainda disponíveis para reserva em relação ao total.<br>
+- **Tela de Salas:** A tela de Salas exibe todas as rooms disponíveis no espaço físico do Inteli. Cada sala é representada por um card que apresenta o número da sala, sua disponibilidade no dia atual e um botão que direciona o usuário para a página individual da sala.<br>
+
+<div style=" display: flex; flex-direction: row;">
+    <img src='../assets/wad/prototipos/alta/4 - Tela Reserva.png' width='20%'>
+    <img src='../assets/wad/prototipos/alta/5 - Confirmar Reserva.png' width='20%'>
+    <img src='../assets/wad/prototipos/alta/6 - Perfil.png' width='20%'>
+</div>
+
+
+- **Tela de reserva:** Nesta tela, são exibidos todos os horários da sala selecionada. Os horários disponíveis apresentam um botão para realizar a reserva, enquanto os horários já reservados exibem uma mensagem indicando que a sala está ocupada naquele período. <br>
+- **Confirmar reserva:** A tela acima exibe uma notificação de confirmação antes que o usuário finalize a reserva de uma sala. Nela, o sistema solicita que o usuário confirme a ação por meio do botão "Confirmar" e informa que, ao concluir a reserva, os demais integrantes do grupo não poderão realizar novas reservas até o final do dia.<br>
+- **Perfil:** A tela de perfil exibe as informações do usuário logado, incluindo nome, e-mail, RA, turma (quando aplicável), grupo e foto de perfil. Também há um botão "Sair", que permite desconectar a conta atual e retornar à tela de login.<br>
+
+<div style=" display: flex; flex-direction: row;">
+    <img src='../assets/wad/prototipos/alta/7 - Negado.png' width='20%'>
+    <img src='../assets/wad/prototipos/alta/8 - Wifi.png' width='20%'>
+</div>
+
+- **Acesso Negado:** A tela a seguir é exibida quando o usuário não pode realizar uma reserva, pois outro integrante do seu grupo já efetuou uma no mesmo dia. Nesse caso, a notificação informa a restrição e apresenta um botão "Continuar", que retorna o usuário à tela anterior. <br>
+- **Conecte ao Wi-fi:** A tela acima exibe uma notificação ao usuário após ele tentar reservar uma sala na tela de horários. Nesse caso, a tentativa falhou porque o dispositivo não está conectado à rede Inteli. O sistema, então, informa que é necessário estar conectado à rede institucional para concluir a reserva.<br>
+
+
+
 
 <br>
 
