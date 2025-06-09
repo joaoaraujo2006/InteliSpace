@@ -1,0 +1,36 @@
+<link rel="stylesheet" href="/css/reservas.css">
+
+<div class="geral">
+
+    <h1>Reservas do Usuário</h1>
+
+    <% if (reservas.length===0) { %>
+        <p class="no-reservas">Nenhuma reserva encontrada.</p>
+        <% } else { %>
+            <div class="cards-container">
+                <% reservas.forEach(reserva=> { %>
+                    <article class="card">
+                        <h2>Reserva ID: <%= reserva.id_reserva %>
+                        </h2>
+
+                        <p class="info"><span class="label">Número da Sala:</span><span class="value">
+                                <%= reserva.número_sala %>
+                            </span></p>
+                        <p class="info"><span class="label">Grupo:</span><span class="value">
+                                <%= reserva.identificador_grupo_reservas %>
+                            </span></p>
+                        <p class="info"><span class="label">Nome do Usuário:</span><span class="value">
+                                <%= reserva.nome_usuario %>
+                            </span></p>
+                        <p class="info"><span class="label">Horário Início:</span><span class="value">
+                                <%= reserva.horario_inicio.slice(0, 5) %>
+                            </span></p>
+                        <p class="info"><span class="label">Horário Fim:</span><span class="value">
+                                <%= reserva.horario_fim.slice(0, 5) %>
+                            </span></p>
+                    </article>
+                    <% }) %>
+            </div>
+            <% } %>
+
+</div>

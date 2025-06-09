@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/login.css">
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/rooms.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/horario.css">
+    <title></title>
+</head>
+
+<body>
+    <div class="login-geral ">
+        <div class="login-metade">
+
+        </div>
+        <div class="login-metade2">
+            <div class="login fade-in">
+                <div class="div-title">
+                    <img class="login-image" src="/assets/logo.png" />
+                </div>
+                <div class="div-form">
+                    <form action="/" method="POST">
+                        <div class="div-input">
+                            <input placeholder="E-mail" class="input" type="text" name="email" required><br><br>
+                        </div>
+                        <div class="div-input">
+                            <input placeholder="Password" class="input" type="password" name="password"
+                                required><br><br>
+                        </div>
+                        <div class="div-button">
+                            <button class="button" type="submit">Logar</button>
+                        </div>
+                        <div class="div-button">
+                            <p class="error"><%= error %>
+                            </p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

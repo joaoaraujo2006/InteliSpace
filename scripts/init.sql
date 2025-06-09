@@ -1,70 +1,43 @@
-CREATE TABLE Turma (
-    Número_Turma INT PRIMARY KEY
-);
-
-CREATE TABLE Grupos (
-    Identificador_Grupo INT PRIMARY KEY,
-    Número_Turma INT,
-    FOREIGN KEY (Número_Turma) REFERENCES Turma(Número_Turma)
-);
-
-CREATE TABLE Usuários (
-    ID_Usuario INT PRIMARY KEY,
-    Nome VARCHAR,
-    Email VARCHAR,
-    Senha VARCHAR,
-    Tipo CHAR,
-    Identificador_Grupo_Usuário INT,
-    FOREIGN KEY (Identificador_Grupo_Usuário) REFERENCES Grupos(Identificador_Grupo)
-);
 
 CREATE TABLE Reservante_Aluno (
-    Nome_Aluno CHAR,
-    Email_Aluno CHAR,
+    Nome_Aluno VARCHAR,
+    Email_Aluno VARCHAR,
     Senha_Aluno VARCHAR,
     RA VARCHAR PRIMARY KEY,
     Identificador_Grupo INT,
-    Número_Turma INT,
-    ID_Usuário INT,
-    FOREIGN KEY (Identificador_Grupo) REFERENCES Grupos(Identificador_Grupo),
-    FOREIGN KEY (Número_Turma) REFERENCES Turma(Número_Turma),
-    FOREIGN KEY (ID_Usuário) REFERENCES Usuários(ID_Usuario)
+    Número_Turma INT
 );
 
 CREATE TABLE Reservante_Funcionário (
-    Nome CHAR,
-    Email_Funcionário CHAR,
+    Nome VARCHAR,
+    Email_Funcionário VARCHAR,
     Senha_Funcionário VARCHAR,
-    CPF CHAR PRIMARY KEY,
-    ID INTEGER,
-    Identificador_Grupo INTEGER,
-    ID_Usuário INT,
-    FOREIGN KEY (Identificador_Grupo) REFERENCES Grupos(Identificador_Grupo),
-    FOREIGN KEY (ID_Usuário) REFERENCES Usuários(ID_Usuario)
+    CPF VARCHAR PRIMARY KEY,
+    ID INT,
+    Identificador_Grupo INT
 );
 
 CREATE TABLE Salas (
-    Número_Sala INT PRIMARY KEY,
-    Identificador_Grupo VARCHAR
-    -- Se você quiser integrar com Grupos, Identificador_Grupo precisa ser INT
-    -- FOREIGN KEY (Identificador_Grupo) REFERENCES Grupos(Identificador_Grupo)
+    Número_Sala INT PRIMARY KEY
 );
 
 CREATE TABLE Horarios_Disponiveis (
-    ID_Horario INT PRIMARY KEY,
-    Numero_Sala INT,
-    Horario_Inicio TIMESTAMP,
-    Horario_Fim TIMESTAMP,
-    FOREIGN KEY (Numero_Sala) REFERENCES Salas(Número_Sala)
+    ID_Horario SERIAL PRIMARY KEY,
+    Horario_Inicio TIME,
+    Horario_Fim TIME
 );
-
 CREATE TABLE Reservas (
     ID_Reserva SERIAL PRIMARY KEY,
     Número_Sala INT,
-    Horário TIMESTAMP,
-    ID_Usuário INTEGER,
+    ID_Usuário INT,
     Identificador_Grupo_Reservas INT,
-    FOREIGN KEY (Número_Sala) REFERENCES Salas(Número_Sala),
-    FOREIGN KEY (ID_Usuário) REFERENCES Usuários(ID_Usuario),
-    FOREIGN KEY (Identificador_Grupo_Reservas) REFERENCES Grupos(Identificador_Grupo)
+    FOREIGN KEY (Número_Sala) REFERENCES Salas(Número_Sala)
+);
+CREATE TABLE Horarios_Reservados(
+    ID_Horario SERIAL,
+    ID_Reserva SERIAL,
+    Estado BOOLEAN,
+    FOREIGN KEY (ID_Horario) REFERENCES Horarios_Disponiveis(ID_Horario),
+    FOREIGN KEY (ID_Reserva) REFERENCES Reservas(ID_Reserva)
+
 );

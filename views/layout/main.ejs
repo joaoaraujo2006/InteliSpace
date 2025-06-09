@@ -1,18 +1,36 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title></title>  
+  <link rel="stylesheet" href="/css/login.css">
+  <link rel="stylesheet" href="/css/index.css">
+  <link rel="stylesheet" href="/css/rooms.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/horario.css">
+  <title></title>
   <style>
   </style>
 </head>
-<body>
 
-  <%- include(content) %>
-    
-  <!-- Adicione scripts JS se necessário -->
-  <script src="/js/script.js"></script>
-  
+<body>
+  <%- include('../components/header') %>
+    <div>
+      <%- include(content) %>
+    </div>
+    <!-- Adicione scripts JS se necessário -->
+    <script src="/js/script.js"></script>
+    <script>
+      window.addEventListener('scroll', function () {
+        const header = document.getElementById('header');
+        if (window.scrollY > 50) {
+          header.classList.add('scrolled');
+        } else {
+          header.classList.remove('scrolled');
+        }
+      });
+    </script>
 </body>
+
 </html>

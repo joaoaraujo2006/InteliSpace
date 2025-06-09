@@ -1,0 +1,22 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Estilo para o corpo da página */
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  background-color: white;
+  color: #333;
+  margin: 0;
+  padding: 0;
+  overflow-y: auto;
+}
+.error{
+  color: white;
+  font-size: 0.9vw;
+  font-family: 'Raleway';
+  background-color: red;
+}

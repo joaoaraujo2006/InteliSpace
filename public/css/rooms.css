@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+.rooms-geral{
+    display: flex;
+    flex-direction: column;
+    background-color: #eae9eb;
+    padding: 0;
+    margin: 0;
+    align-items: center;
+    max-width: 100vw;
+    
+}
+.rooms{
+    display: flex;
+    flex-direction: row;
+    overflow-y: hidden;
+    width: 100%;
+    padding-top: 2vw;
+    gap: 2vw;
+    justify-content: center;
+    padding-bottom: 0.5vw;
+}
+.card{
+    display: flex;
+    flex-direction: column;
+    width: 20vw;
+    height: 20vw;
+    border-radius: 1vw;
+    background-color: rgb(255, 255, 255);
+    border-radius: 1vw;
+    box-shadow: 0 2px 4px #35343470;
+}
+
+.card-metade{
+    display: flex;
+    flex-direction: column;
+    height: 10vw;
+    width: 20vw;
+    background-size: cover;
+    border-top-left-radius: 1vw;
+    border-top-right-radius: 1vw;
+}
+.card-metade2{
+    display: flex;
+    flex-direction: column;
+    height: 10vw;
+    width: 20vw;
+    border-radius: 1vw;
+    position: absolute;
+    margin-top: 9vw;
+    z-index: 10;
+    background-color: white;
+}
+.card .row{
+    display: flex;
+    flex-direction: row;
+    width: 20vw;
+    margin-top: 0.5vw;
+    margin-left: 1.5vw;
+    margin-right: 1.5vw;
+    margin-bottom: 0vw;
+    align-items: center;
+    
+}
+.card .row2{
+    display: flex;
+    flex-direction: row;
+    width: 20vw;
+    margin-left: 1.5vw;
+    margin-right: 1.5vw;
+    margin-bottom: 0vw;
+    align-items: center;
+    
+}
+.card .row3{
+    display: flex;
+    flex-direction: row;
+    width: 20vw;
+    margin-top: 1vw;
+    margin-bottom: 0vw;
+    justify-content: center;
+}
+.card .title{
+    font-family: 'Space Mono';
+    font-weight: bold;
+    color: black;
+    width: 9vw;
+    font-size: 1.5vw;
+}
+.card .dispo-row{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    width: 8vw;
+}
+.card .disponivel{
+    font-family: 'Space Mono';
+    font-weight: 300;
+    font-size: 0.8vw;
+    background-color: rgb(115, 233, 115);
+    padding: 0.1vw;
+    padding-left: 0.5vw;
+    padding-right: 0.5vw;
+    border-radius: 1vw;
+}
+.card .text{
+    font-family: 'Raleway';
+    font-weight: 400;
+    font-size: 0.8vw;
+    color: black;
+    width: 18vw;
+}
+.card .button{
+    width: 12vw;
+    height: 3vw;
+    background-color: #462D71;
+    color: white;
+    font-family: 'Space Mono';
+    border: 1px solid white;
+    border-radius: 0.7vw;
+    font-size: 0.8vw;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 1;
+    transform: translateY(5vw); /* opcional: efeito de subida */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.fade-in {
+  animation: fadeIn 0.5s ease-out forwards;
+}

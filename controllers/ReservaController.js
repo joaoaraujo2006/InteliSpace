@@ -5,7 +5,7 @@ const ReservaController = {
     const reservas = await ReservaModel.listarReservas();
     res.render('layout/main', {
       reservas,
-      content: '../pages/page1'
+      content: '../pages/reservasManuais'
     });
   },
   async criar(req, res) {
@@ -21,7 +21,15 @@ const ReservaController = {
     const { id } = req.params;
     await ReservaModel.deletarReserva(id);
     res.redirect('/reservas');
-  }
+  }, 
+    async visualizarReservas(req, res) {
+    idUsuario = req.session.user.id;
+    const reservas = await ReservaModel.listarReservasPorUsuario(idUsuario)
+    res.render('layout/main', {
+      reservas,
+      content: '../pages/reservas'
+    });
+  },
 }
 
 module.exports = ReservaController;

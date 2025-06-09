@@ -1,0 +1,233 @@
+<div class="rooms-geral fade-in">
+    <div class="rooms">
+        <div class="card">
+            <div class="card-metade" style=" background-image: url('assets/R01.jpeg');">
+            </div>
+            <div class="card-metade2">
+                <div class="row">
+                    <h1 class="title">R01</h1>
+                    <div class="dispo-row">
+                        <h3 class="disponivel">
+                            <%= estadoSala[0].tem_horario_disponivel ? "disponível" : "indisponível" %>
+                        </h3>
+                    </div>
+                </div>
+                <div class="row2">
+                    <p class="text"> A Room 01 fica localizada ao lado da entrada principal do Inteli.</p>
+                </div>
+                <div class="row3">
+                    <form action="/selectRoom" method="POST">
+                        <input type="hidden" name="room_id" value=01>
+                        <button class="button" type="submit"> Reservar </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-metade" style=" background-image: url('assets/R02.jpeg');">
+            </div>
+            <div class="card-metade2">
+                <div class="row">
+                    <h1 class="title">
+                        R02
+                    </h1>
+                    <div class="dispo-row">
+                        <h3 class="disponivel"><%= estadoSala[1].tem_horario_disponivel ? "disponível" : "indisponível" %></h3>
+                    </div>
+                </div>
+                <div class="row2">
+                    <p class="text"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.</p>
+                </div>
+                <div class="row3">
+                    <form action="/selectRoom" method="POST">
+                        <input type="hidden" name="room_id" value=02>
+                        <button class="button" type="submit"> Reservar </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-metade" style=" background-image: url('assets/R03.jpeg');">
+            </div>
+            <div class="card-metade2">
+                <div class="row">
+                    <h1 class="title">R03</h1>
+                    <div class="dispo-row">
+                        <h3 class="disponivel">
+                            <%= estadoSala[2].tem_horario_disponivel ? "disponível" : "indisponível" %>
+                        </h3>
+                    </div>
+                </div>
+                <div class="row2">
+                    <p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.</p>
+                </div>
+                <div class="row3">
+                    <form action="/selectRoom" method="POST">
+                        <input type="hidden" name="room_id" value=03>
+                        <button class="button" type="submit"> Reservar </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="rooms">
+        <div class="card">
+            <div class="card-metade" style=" background-image: url('assets/R04.jpeg');">
+            </div>
+            <div class="card-metade2">
+                <div class="row">
+                    <h1 class="title">R04</h1>
+                    <div class="dispo-row">
+                        <h3 class="disponivel">
+                            <%= estadoSala[3].tem_horario_disponivel ? "disponível" : "indisponível" %>
+                        </h3>
+                    </div>
+                </div>
+                <div class="row2">
+                    <p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.</p>
+                </div>
+                <div class="row3">
+                    <form action="/selectRoom" method="POST">
+                        <input type="hidden" name="room_id" value=04>
+                        <button class="button" type="submit"> Reservar </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-metade" style=" background-image: url('assets/R05.jpeg');">
+            </div>
+            <div class="card-metade2">
+                <div class="row">
+                    <h1 class="title">R05</h1>
+                    <div class="dispo-row">
+                        <h3 class="disponivel">
+                            <%= estadoSala[4].tem_horario_disponivel ? "disponível" : "indisponível" %>
+                        </h3>
+                    </div>
+                </div>
+                <div class="row2">
+                    <p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.</p>
+                </div>
+                <div class="row3">
+                    <form action="/selectRoom" method="POST">
+                        <input type="hidden" name="room_id" value=05>
+                        <button class="button" type="submit"> Reservar </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-metade" style=" background-image: url('assets/R06.jpeg');">
+            </div>
+            <div class="card-metade2">
+                <div class="row">
+                    <h1 class="title">R06</h1>
+                    <div class="dispo-row">
+                        <h3 class="disponivel">
+                            <%= estadoSala[5].tem_horario_disponivel ? "disponível" : "indisponível" %>
+                        </h3>
+                    </div>
+                </div>
+                <div class="row2">
+                    <p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.</p>
+                </div>
+                <div class="row3">
+                    <form action="/selectRoom" method="POST">
+                        <input type="hidden" name="room_id" value=06>
+                        <button class="button" type="submit"> Reservar </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="rooms">
+        <div class="card">
+            <div class="card-metade" style=" background-image: url('assets/R07.jpeg');">
+            </div>
+            <div class="card-metade2">
+                <div class="row">
+                    <h1 class="title">R07</h1>
+                    <div class="dispo-row">
+                        <h3 class="disponivel">
+                            <%= estadoSala[6].tem_horario_disponivel ? "disponível" : "indisponível" %>
+                        </h3>
+                    </div>
+                </div>
+                <div class="row2">
+                    <p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.</p>
+                </div>
+                <div class="row3">
+                    <form action="/selectRoom" method="POST">
+                        <input type="hidden" name="room_id" value=07>
+                        <button class="button" type="submit"> Reservar </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-metade" style=" background-image: url('assets/R08.jpeg');">
+            </div>
+            <div class="card-metade2">
+                <div class="row">
+                    <h1 class="title">R08</h1>
+                    <div class="dispo-row">
+                        <h3 class="disponivel">
+                            <%= estadoSala[7].tem_horario_disponivel ? "disponível" : "indisponível" %>
+                        </h3>
+                    </div>
+                </div>
+                <div class="row2">
+                    <p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.</p>
+                </div>
+                <div class="row3">
+                    <button class="button"> Reservar </button>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-metade" style=" background-image: url('assets/R09.jpeg');">
+            </div>
+            <div class="card-metade2">
+                <div class="row">
+                    <h1 class="title">R09</h1>
+                    <div class="dispo-row">
+                        <h3 class="disponivel">
+                            <%= estadoSala[8].tem_horario_disponivel ? "disponível" : "indisponível" %>
+                        </h3>
+                    </div>
+                </div>
+                <div class="row2">
+                    <p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.</p>
+                </div>
+                <div class="row3">
+                    <button class="button"> Reservar </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="rooms">
+        <div class="card">
+            <div class="card-metade" style=" background-image: url('assets/R09.jpeg');">
+            </div>
+            <div class="card-metade2">
+                <div class="row">
+                    <h1 class="title">R10</h1>
+                    <div class="dispo-row">
+                        <h3 class="disponivel">
+                            <%= estadoSala[9].tem_horario_disponivel ? "disponível" : "indisponível" %>
+                        </h3>
+                    </div>
+                </div>
+                <div class="row2">
+                    <p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.</p>
+                </div>
+                <div class="row3">
+                    <button class="button"> Reservar </button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

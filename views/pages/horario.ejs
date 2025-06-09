@@ -1,0 +1,72 @@
+<div class="horario">
+  <div class="image">
+  </div>
+  <div class="baixo fade-in">
+    <h1 class="title">Room <%= room_id %>
+    </h1>
+    <p class="text">Horários disponíveis:</p>
+    <div class="horarios">
+      <% horarios.forEach(item=> { %>
+        <h3 class="hora" onclick="selecionarHorario('<%= item.horario_inicio.slice(0, 5) %>', '<%= item.id_horario %>')">
+          <%= item.horario_inicio.slice(0, 5) %>
+        </h3>
+        <% }) %>
+    </div>
+    <p class="text">Máximo de pessoas:</p>
+    <div class="horarios">
+      <img class="image-hora" src="/assets/perfil.webp" />
+      <p>16 pessoas</p>
+    </div>
+    <button class="button" onclick="abrirModal()" id="btnReservar" disabled>Reservar</button>
+
+
+  </div>
+</div>
+
+<!-- Modal -->
+<div id="modal" class="modal" style="display:none;">
+  <div class="modal-content">
+    <h2>Confirmar Reserva</h2>
+    <p>Você tem certeza que deseja reservar a <strong>Room <%= room_id %></strong> às <strong
+        id="horarioSelecionadoModal">--:--</strong>?</p>
+    <div class="modal-buttons">
+      <form action="/reservar" method="POST">
+        <input type="hidden" name="número_sala" value='<%= room_id %>'>
+        <input type="hidden" name="id_horario" id='inputIdHorario'>
+        <button class="button" onclick="fecharModal()" type="submit">Confirmar</button>
+      </form>
+      <button class="button bt" onclick="fecharModal()">Cancelar</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  let horarioSelecionado = null;
+  let idSelecionado = null;
+  function selecionarHorario(horario, id) {
+    horarioSelecionado = horario;
+    idSelecionado = id;
+    // Marca o horário selecionado visualmente:
+    document.querySelectorAll('.hora').forEach(h => h.classList.remove('selecionado'));
+    event.target.classList.add('selecionado');
+
+    // Habilita o botão reservar
+    document.getElementById('btnReservar').disabled = false;
+  }
+
+  function abrirModal() {
+    if (!horarioSelecionado) {
+      alert("Por favor, selecione um horário antes de reservar.");
+      return;
+    }
+    document.getElementById('horarioSelecionadoModal').textContent = horarioSelecionado;
+    document.getElementById('inputIdHorario').value = idSelecionado;
+    document.getElementById('modal').style.display = 'flex';
+  }
+
+  function fecharModal() {
+    document.getElementById('modal').style.display = 'none';
+  }
+
+
+</script>
