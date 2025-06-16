@@ -1,12 +1,29 @@
 const db = require('../config/database');
 
 const ReservaModel = {
+async  criarReserva(numero_sala, id_usuario, grupo) {
+  return await db.query(
+    'INSERT INTO Reservas (Número_Sala, ID_Usuário, Identificador_Grupo_Reservas) VALUES ($1, $2, $3) RETURNING ID_Reserva',
+    [numero_sala, id_usuario, grupo]
+  );
+},
 
-  async criarReserva({ número_sala, horário, id_usuário, identificador_grupo_reservas }) {
-    const query = 'INSERT INTO Reservas (Número_Sala, ID_Usuário, Identificador_Grupo_Reservas) VALUES ($1, $2, $3) RETURNING ID_Reserva;';
-    const values = [número_sala, horário, id_usuário, identificador_grupo_reservas || null];
-    return db.query(query, values);
-  },
+async vincularHorario(id_horario, id_reserva) {
+  return await db.query(
+    'INSERT INTO Horarios_Reservados (ID_Horario, ID_Reserva, Estado) VALUES ($1, $2, true)',
+    [id_horario, id_reserva]
+  );
+},
+
+async verificarGrupoNoHorario(id_horario, grupo) {
+  const { rows } = await db.query(`
+    SELECT r.* FROM Reservas r
+    JOIN Horarios_Reservados hr ON r.ID_Reserva = hr.ID_Reserva
+    WHERE hr.ID_Horario = $1 AND r.Identificador_Grupo_Reservas = $2
+  `, [id_horario, grupo]);
+
+  return rows.length > 0;
+},
 
   async listarReservas() {
     const result = await db.query(`SELECT 
@@ -29,20 +46,16 @@ JOIN Horarios_Disponiveis hd ON hr.ID_Horario = hd.ID_Horario;
   async editarReserva(id_reserva, { número_sala, horário }) {
     const result = await db.query(`
     UPDATE Reservas
-    SET Número_Sala = $1,
-        Horário = $2
-    WHERE ID_Reserva = $3
-  `, [número_sala, horário, id_reserva]);
+    SET Número_Sala = $1
+    WHERE ID_Reserva = $2
+  `, [número_sala, id_reserva]);
 
     return result.rowCount > 0;
   },
 
   async deletarReserva(id_reserva) {
-    const result = await db.query(`
-    DELETE FROM Reservas WHERE ID_Reserva = $1
-  `, [id_reserva]);
-
-    return result.rowCount > 0;
+    await db.query('DELETE FROM Horarios_Reservados WHERE ID_Reserva = $1', [id_reserva]);
+    await db.query('DELETE FROM Reservas WHERE ID_Reserva = $1', [id_reserva]);
   },
   async verificarReservaPorSala() {
     const result = await db.query(`
@@ -91,10 +104,11 @@ ORDER BY h.Horario_Inicio;
     )
     return result;
   },
-  async definirReserva() {
+  async definirReserva(id_horario, id_reserva) {
     const result = await db.query(' INSERT INTO Horarios_Reservados (ID_Horario, ID_Reserva, Estado) VALUES ($1, $2, true)',
       [id_horario, id_reserva]
     )
+    return result
   },
   async listarReservasPorUsuario(idUsuario) {
     const result = await db.query(`
@@ -113,8 +127,13 @@ ORDER BY h.Horario_Inicio;
     WHERE r.ID_Usuário = $1
   `, [idUsuario]);
 
-return result.rows;
-}
-
+    return result.rows;
+  },
+  async verificarReservaDoGrupo( grupo_id) {
+    return db.query(`
+    SELECT * FROM reservas
+    WHERE Identificador_Grupo_Reservas  = $1
+  `, [ grupo_id]);
+  }
 }
 module.exports = ReservaModel;

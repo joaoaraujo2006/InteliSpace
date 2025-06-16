@@ -597,23 +597,146 @@ O endpoint acima define que quando a rota do HTTP finalizar com /reservas/delete
 
 ### 3.7 Interface e Navegação (Semana 07)
 
-*Descreva e ilustre aqui o desenvolvimento do frontend do sistema web, explicando brevemente o que foi entregue em termos de código e sistema. Utilize prints de tela para ilustrar.*
 
----
 
 ## <a name="c4"></a>4. Desenvolvimento da Aplicação Web (Semana 8)
 
 ### 4.1 Demonstração do Sistema Web (Semana 8)
 
-*VIDEO: Insira o link do vídeo demonstrativo nesta seção*
-*Descreva e ilustre aqui o desenvolvimento do sistema web completo, explicando brevemente o que foi entregue em termos de código e sistema. Utilize prints de tela para ilustrar.*
+&nbsp;&nbsp;&nbsp;&nbsp; Foi desenvolvida uma plataforma que permite os alunos estudantes do Instituto de Tecnologia e Liderança (Inteli) reservarem salas de estudo dentro do ambiente estudantil. Atualmente, o sistema de reserva de salas é realizado de forma demorado e pouco automatizado, por isso, o Inteli Space busca automatizar esse processo através do reconhecimento do Grupo e Turma do estudante para que alunos do mesmo grupo não possam reservar uma sala em um mesmo dia.
+
+&nbsp;&nbsp;&nbsp;&nbsp;Além disso, a plataforma permite funcionários realizarem manutenção caso haja necessidade, onde eles podem logar na plataforma com permissões especiais que permitem alterar, excluir ou cadastrar novas reservas.
+
+#### 4.1.1 Login 
+
+&nbsp;&nbsp;&nbsp;&nbsp; Na tela de Login, o usuário deve inserir seu email e senha já cadastrados no sistema Inteli. Caso o usuário insira um email ou senha inexistente, o sistema retorna uma mensagem avisando que as informações estão incorretas. Além disso, foi criado um Middleware que impede usuários de acessarem novas telas antes de realizarem o login.
+
+<div align="center">
+<sub>Figura 1: Tela de Login</sub>
+</div> 
+</div>
+<div align="center">
+<img src="../assets/wad/3.6/1.png" width="60%" height="60%"/>
+</div>
+<div align="center">
+<sub>Fonte: Material de autoria própria</sub>
+</div> 
+
+#### 4.1.2 Tela Inicial
+
+&nbsp;&nbsp;&nbsp;&nbsp; Se o usuário realizar o login como estudante, ele é redirecionado a tela de inicial, que possuí todas as rooms disponíveis no Inteli, indo de 1 a 10 e suas informações como: disponibilidade, número e descrição. Além disso, acima da tela há a barra de navegação, onde o aluno pode acessar a tela de "Minhas reservas".
+
+<div align="center">
+<sub>Figura 2: Tela de Rooms</sub>
+</div> 
+</div>
+<div align="center">
+<img src="../assets/wad/3.6/2.png" width="60%" height="60%"/>
+</div>
+<div align="center">
+<sub>Fonte: Material de autoria própria</sub>
+</div> 
+
+#### 4.1.3 Minhas Reservas
+
+&nbsp;&nbsp;&nbsp;&nbsp; Caso o usuário tenha clicado na tela de Minhas Reservas, ele exibe as reservas que o usuário realizou.
+<div align="center">
+<sub>Figura 3: Tela de minhas reservas</sub>
+</div> 
+</div>
+<div align="center">
+<img src="../assets/wad/3.6/6.png" width="60%" height="60%"/>
+</div>
+<div align="center">
+<sub>Fonte: Material de autoria própria</sub>
+</div> 
+
+#### 4.1.4 Tela de reserva
+
+&nbsp;&nbsp;&nbsp;&nbsp; Quando o usuário clicar em uma das salas ele é redirecionado a tela de reservas da respectiva Room. Nessa tela, o usuário pode visualizar os horários disponíveis para reserva e a capacidade da sala. Para ele reservar uma sala, ele deve selecionar um dos horários e pressionar o botão de reservar.
+
+<div align="center">
+<sub>Figura 4: Tela de Reserva</sub>
+</div> 
+</div>
+<div align="center">
+<img src="../assets/wad/3.6/3.png" width="60%" height="60%"/>
+</div>
+<div align="center">
+<sub>Fonte: Material de autoria própria</sub>
+</div>
+
+ #### 4.1.5 Confirmar Reserva
+
+&nbsp;&nbsp;&nbsp;&nbsp; Ao pressionar o botão de reservar uma sala, é exibido um modal de confirmação, verificando se o usuário realmente deseja reservá-la nesse horário especificado.
+
+<div align="center">
+<sub>Figura 4: Tela de Reserva</sub>
+</div> 
+</div>
+<div align="center">
+<img src="../assets/wad/3.6/5.png" width="60%" height="60%"/>
+</div>
+<div align="center">
+<sub>Fonte: Material de autoria própria</sub>
+</div>
+
+ #### 4.1.6 Erro
+
+&nbsp;&nbsp;&nbsp;&nbsp; Caso algum integrante do grupo já tenha reservado uma sala no dia atual, é exibida uma notificação alertando a impossibilidade na reserva.
+
+<div align="center">
+<sub>Figura 4: Tela de Reserva</sub>
+</div> 
+</div>
+<div align="center">
+<img src="../assets/wad/3.6/4.png" width="60%" height="60%"/>
+</div>
+<div align="center">
+<sub>Fonte: Material de autoria própria</sub>
+</div>
+
+ #### 4.1.6 Tela de Administrador
+
+&nbsp;&nbsp;&nbsp;&nbsp; A tela de administrador foi desenvolvida para funcionários que necessitem de maiores permissões para corrigirem erros ou alterarem reservas caso necessário. Nessa tela, o usuário pode deletar, editar, visualizar e criar reservas dentro da plataforma. Para acessar essa tela é necessário possuir uma conta administradora.
+
+<div align="center">
+<sub>Figura 4: Tela de Reserva</sub>
+</div> 
+</div>
+<div align="center">
+<img src="../assets/wad/3.6/7.png" width="60%" height="60%"/>
+</div>
+<div align="center">
+<sub>Fonte: Material de autoria própria</sub>
+</div>
+
+#### 4.1.8 Vídeo demonstrativo.
+
+&nbsp;&nbsp;&nbsp;&nbsp; No link abaixo, há um vídeo demonstrativo exibindo todas as funcionalidades e proposta da aplicação.
+
+https://www.youtube.com/watch?v=XhzzHH25b_E 
 
 ### 4.2 Conclusões e Trabalhos Futuros (Semana 8)
 
-*Indique pontos fortes e pontos a melhorar de maneira geral.*
-*Relacione também quaisquer outras ideias que você tenha para melhorias futuras.*
+&nbsp;&nbsp;&nbsp;&nbsp;O Inteli Space apresentou uma solução funcional e eficiente para o gerenciamento de reservas de salas no ambiente do Inteli. Através da integração entre banco de dados, interface amigável e controle de usuários, conseguimos entregar uma plataforma que otimiza o uso dos espaços físicos da instituição.
+
+**Trabalhos futuros:**
+
+- **Notificações:** Implementar notificações automáticas por e-mail ou app;
+
+- **Sistema de reserva para professores:** Expandir o Inteli Space para reserva de salas de secretária do segundo andar.
+
+- **Verificação de Wifi:** O sistema verificar se o aluno está conectado na rede Inteli, com objetivo de evitar reservas de sala por alunos que não estejam presentes no ambiente acadêmico.
 
 
+**Maiores Dificuldades:**
+
+&nbsp;&nbsp;&nbsp;&nbsp;Dentre as maiores dificuldades da aplicação, uma delas foi a verificação se o grupo do aluno já realizou uma reserva. Isso porque, é necessário entender e análisar a forma como o sistema de grupos do Inteli funciona e implementar isso no banco de dados, o que não foi uma tarefa fácil.
+
+&nbsp;&nbsp;&nbsp;&nbsp;Além disso, está a verificação e criação de diferentes telas para alunos e funcionários, já que as funcionalidades destoam entre si, e o sistema deve seguir um caminho para cada uma das versões, por isso houve uma certa dificuldade na implementação.
+
+&nbsp;&nbsp;&nbsp;&nbsp;Como conclusão, o projeto realiza todas as operações CRUD criação, edição e exclusão de reservas, controle por grupo. O sistema também evita reservas duplicadas por integrantes do mesmo grupo, aumentando a organização e o uso racional das salas, assim solucionando a dor apresentada pela proposta da solução no início do projeto.
 
 ## <a name="c5"></a>5. Referências
 

@@ -33,6 +33,7 @@ header {
   text-align: center;
   align-items: center;
   z-index: 2;
+  box-shadow: 0 8px 16px rgb(0 0 0 / 0.15);
 }
 
 /* Estilo para a navegação dentro do cabeçalho */
@@ -46,6 +47,7 @@ header nav ul li {
   margin-right: 20px;
   font-family: 'Raleway';
   font-weight: 500;
+
 }
 
 header nav ul li a {
@@ -115,5 +117,11 @@ footer {
 .geral{
   margin: 2vw;
   display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.all-cards{
+  display: flex;
   flex-direction: column;
+  width: 50vw;
 }

@@ -14,9 +14,8 @@ const LoginController = {
 
     // Try to find user as a guardian first
     let user = await LoginModel.findAlunoByEmail(email);
-    role = 'aluno';
+    let role = 'aluno';
 
-    console.log(user)
     if (!user) {
       user = await LoginModel.findFuncionarioByEmail(email);
       role = 'funcionario';
@@ -43,20 +42,17 @@ const LoginController = {
 
     // Save user info and role in the session
     req.session.user = {
-      id: role === 'funcionário' ? user.cpf : user.ra,
-      name: role === 'funcionário' ? user.nome : user.nome_aluno,
+      id: role === 'funcionario' ? user.cpf : user.ra,
+      name: role === 'funcionario' ? user.nome : user.nome_aluno,
       role,
-      grupo: role === 'funcionário' ? null : user.identificador_grupo,
-      turma: role === 'funcionário' ? null : user.número_turma
-
-
-      // Redirect based on user role
-      //if (role === 'guardian') {
-      //  return res.redirect('/selectstudent');
-      //} else {
-      //  return res.redirect('/news');
+      grupo: role === 'funcionario' ? null : user.identificador_grupo,
+      turma: role === 'funcionario' ? null : user.número_turma
     }
-    res.redirect('/rooms')
+    if (role === 'aluno'){
+      res.redirect('/rooms')
+    } else {
+      res.redirect('/reservas')
+    }
   },
 
 }

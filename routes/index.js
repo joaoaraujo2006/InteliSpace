@@ -4,22 +4,23 @@ const ReservaController = require('../controllers/ReservaController');
 const LoginController = require('../controllers/LoginController');
 const RoomsController = require('../controllers/roomsController');
 const HorariosController = require('../controllers/HorarioController')
+const requireLogin = require('../middlewares/auth');
 // rota POST para algum form (se tiver)
 
-router.get('/reservas', ReservaController.listar);
-router.post('/reservas', ReservaController.criar);
-router.post('/reservas/edit/:id',  ReservaController.editar);
-router.post('/reservas/delete/:id',  ReservaController.deletar);
+router.get('/reservas', requireLogin, ReservaController.listar);
+router.post('/reservas', requireLogin, ReservaController.criarReserva);
+router.post('/reservas/edit/:id', requireLogin,  ReservaController.editar);
+router.post('/reservas/delete/:id', requireLogin,  ReservaController.deletar);
 
 router.get('/', LoginController.listar);
 router.post('/', LoginController.verificar);
 
-router.get('/rooms', RoomsController.listar)
-router.post('/selectRoom', RoomsController.store);
+router.get('/rooms', requireLogin, RoomsController.listar)
+router.post('/selectRoom', requireLogin,  RoomsController.store);
 
-router.get('/horario', HorariosController.listar);
-router.post('/reservar', HorariosController.reservarSala);
+router.get('/horario', requireLogin, HorariosController.listar);
+router.post('/reservar', requireLogin, HorariosController.reservarSala);
 
-router.get('/reservados', ReservaController.visualizarReservas)
+router.get('/reservados', requireLogin, ReservaController.visualizarReservas)
 
 module.exports = router;

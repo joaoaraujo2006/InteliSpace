@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/login.css">
+  <link rel="stylesheet" href="/css/index.css">
+  <link rel="stylesheet" href="/css/rooms.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/horario.css">
+  <link rel="stylesheet" href="/css/reservas.css">
+  <title></title>
+  <style>
+  </style>
+</head>
+
+<body>
+  <header id="header">
+    <div class="div-image">
+      <img src="/assets/logo.png" class="header-image" />
+    </div>
+  </header>
+  <div class="geral">
+    <div class="all-cards">
+      <h2>Lista de Reservas</h2>
+
+      <% reservas.forEach(item=> { %>
+        <article>
+          <p><strong>ID da Reserva:</strong>
+            <%= item.id_reserva %>
+          </p>
+          <p><strong>Nome do Usuário:</strong>
+            <%= item.nome_usuario %>
+          </p>
+          <p><strong>Número da Sala:</strong>
+            <%= item.número_sala %>
+          </p>
+          <p><strong>Horário:</strong>
+            <%= item.horario_inicio %> - <%= item.horario_fim %>
+          </p>
+          <p><strong>Grupo:</strong>
+            <%= item.identificador_grupo_reservas %>
+          </p>
+
+          <div class="actions">
+            <form action="/reservas/edit/<%= item.id_reserva %>" method="POST">
+              <label for="número_sala">Número da Sala:</label>
+              <input type="number" name="número_sala" required>
+
+              <button type="submit">Editar</button>
+            </form>
+
+            <form action="/reservas/delete/<%= item.id_reserva %>" method="POST">
+              <button type="submit">Deletar</button>
+            </form>
+          </div>
+        </article>
+        <% }) %>
+
+          <h2>Cadastrar nova reserva:</h2>
+
+          <form action="/reservas" method="POST">
+            <label for="numero_sala">Sala:</label>
+            <select name="numero_sala" id="numero_sala" required>
+              <% salas.forEach(sala=> { %>
+                <option value="<%= sala.número_sala %>">
+                  <%= sala.número_sala %>
+                </option>
+                <% }); %>
+            </select>
+
+            <label for="id_horario">Horário:</label>
+            <select name="id_horario" id="id_horario" required>
+              <% horarios.forEach(horario=> { %>
+                <option value="<%= horario.id_horario %>">
+                  <%= horario.horario_inicio %> - <%= horario.horario_fim %>
+                </option>
+                <% }); %>
+            </select>
+
+            <button type="submit">Criar Reserva</button>
+          </form>
+    </div>
+
+  </div>
+</body>
